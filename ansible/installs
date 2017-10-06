@@ -1,0 +1,29 @@
+1)
+2.4 ansibe uses --vault-id
+
+# install ansible uiser - run as a user with sudo acceson the servers you are building
+
+ansible-playbook -v -i /opt/ansible/inventories/production --vault-id /opt/ansible/.vault_pass --limit 192.168.1.132 -K -k -u sspimb /opt/ansible/roles/ansible/server.yml -b
+
+ansible-playbook -v -i /opt/ansible/inventories/production --vault-password-file /opt/ansible/.vault_pass --limit 192.168.1.132 -k --extra-vars ansible_sudo_pass=Welkom2017!! -u spimblett /opt/ansible/roles/ansible/server.yml -b
+
+
+2) 
+
+# install the ldap client as ansible user
+
+
+ansible-playbook -v -i /opt/ansible/inventories/production --vault-password-file /opt/ansible/.vault_pass --extra-vars ansible_sudo_pass=b3fFl3d@22 --limit 192.168.1.132 /opt/ansible/roles/openldap/server.yml -b 
+
+
+
+# install the ldap client  as ansible user and do not remove any previosuly installed ldap packages
+
+
+ansible-playbook -v -i /opt/ansible/inventories/production --vault-password-file /opt/ansible/.vault_pass --extra-vars ansible_sudo_pass=b3fFl3d@22 --limit 192.168.1.132 /opt/ansible/roles/openldap/server.yml -b --skip-tags remove_all_packages
+
+
+
+# initial ram install for server hardening ...
+
+ansible-playbook -v -i /opt/ansible/inventories/production --vault-password-file /.vault_pass --extra-vars ansible_sudo_pass=b3fFl3d@22 --limit 192.168.1.132 /opt/ansible/roles/ram_initial/server.yml -b 

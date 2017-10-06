@@ -1,0 +1,73 @@
+---
+
+# extras for host 'simon-min01'
+
+- name: insert the dns lookup iptables rule
+  iptables:
+    action : insert
+    chain: OUTPUT
+    ctstate : NEW,RELATED,ESTABLISHED
+    destination: "{{ dns01 }}"
+    jump: ACCEPT
+    protocol: udp
+    destination_port: "{{ dnsport }}"
+    comment: Allow production DNS traffic
+  when: ansible_hostname == "simon-min01"
+
+- name: insert the dns lookup iptables rule
+  iptables:
+    action : insert
+    chain: OUTPUT
+    ctstate : NEW,RELATED,ESTABLISHED
+    destination: "{{ dns01 }}"
+    jump: ACCEPT
+    protocol: tcp
+    destination_port: "{{ dnsport }}"
+    comment: Allow production DNS traffic
+  when: ansible_hostname == "simon-min01"
+
+- name: allow the port 80 rule for apt-get
+  iptables:
+    action : insert
+    chain: OUTPUT
+    ctstate : NEW,RELATED,ESTABLISHED
+    destination: "{{ repo01 }}"
+    jump: ACCEPT
+    protocol: tcp
+    destination_port: "{{ httpport }}"
+    comment: Allow production HTTP traffic
+  when: ansible_hostname == "simon-min01"
+
+- name: allow the port 80 rule for apt-get
+  iptables:
+    action : insert
+    chain: OUTPUT
+    ctstate : NEW,RELATED,ESTABLISHED
+    destination: "{{ debiansec01 }}"
+    jump: ACCEPT
+    protocol: tcp
+    destination_port: "{{ httpport }}"
+    comment: Allow production HTTP traffic
+  when: ansible_hostname == "simon-min01"
+
+# extras for host 'brain'
+
+- name: Add the required host to the hosts file ..
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    line: '{{ debianftpip }} {{ debianftp }}  '
+  when: ansible_hostname == "brain"
+
+- name: allow the port 80 rule for apt-get
+  iptables:
+    action : insert
+    chain: OUTPUT
+    ctstate : NEW,RELATED,ESTABLISHED
+    destination: "{{ debianftp }}"
+    jump: ACCEPT
+    protocol: tcp
+    destination_port: "{{ httpport }}"
+    comment: Allow production HTTP traffic
+  when: ansible_hostname == "brain"
+
