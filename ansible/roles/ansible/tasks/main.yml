@@ -29,7 +29,7 @@
     name: "{{ user }}"
     state: present
     group: "{{ user }}"
-    password: $6$T0bUgrEZe$KfnJqbiG0rDf8fZ84E5QTB7HNJp8N6ddrPBfcilMQGIKLyB6P8RiLlNZ/fK.GzpzvW28h6yVySjPrTbeANtA10
+    password: $6$agAOGp8s$P.KC35sINz69uCO1WzeTq4lNIqflB9nHQM/VfObnqJeTAVWa/rZmvaZ6BBToP6iPH.cF70WSeG2A.RRNR8jf00
     home: /opt/ansible
     update_password: always
 
@@ -39,7 +39,7 @@
   user:
    name: "{{ user }}"
    update_password: always
-   password: $6$T0bUgrEZe$KfnJqbiG0rDf8fZ84E5QTB7HNJp8N6ddrPBfcilMQGIKLyB6P8RiLlNZ/fK.GzpzvW28h6yVySjPrTbeANtA10
+   password: $6$agAOGp8s$P.KC35sINz69uCO1WzeTq4lNIqflB9nHQM/VfObnqJeTAVWa/rZmvaZ6BBToP6iPH.cF70WSeG2A.RRNR8jf00
   tags: [ 'reset_ansible_password']
 
 - name: reset ansible password 

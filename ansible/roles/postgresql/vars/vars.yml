@@ -1,0 +1,21 @@
+---
+
+postgresql_version: 9.6
+
+postgresql_databases:
+  - name: Ipay
+    owner: mw01 
+
+postgresql_users:
+  - name: mw01
+    pass: pass
+
+  - name: mw02
+    pass: md51a1dc91c907325c69271ddf0c944bc72
+    encrypted: yes
+
+  - name: mw03
+
+postgresql_user_privileges:
+  - name: mw01 
+    db: Ipay

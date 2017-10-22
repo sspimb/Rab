@@ -1,3 +1,0 @@
-nameserver {{ pillar.get('dns01') }}
-nameserver {{ pillar.get('dns02') }}
-search ram.nl

@@ -5,7 +5,7 @@
 # Create the iptables rules to allow DNS loookup, external http access for apt-get,changes to hosts file etc.We include another set of tasks for this as it is 
 # outside of a normal client install
 
-- include: extras.yml
+- include_tasks: extras.yml
 
 # remove all packages if tag set
 
@@ -17,7 +17,6 @@
     name:  "{{ item }}"
     state: absent
     purge: yes
-    update_cache: yes
     force: yes
   with_items:
          - ldap-utils
@@ -30,7 +29,7 @@
   tags: ['remove_all_packages']
   shell: echo "removing all ldap client packages"
 
-- include: cleanusers.yml
+- include_tasks: cleanusers.yml
 
 # remove local user account and groups
 

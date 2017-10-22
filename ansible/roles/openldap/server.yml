@@ -1,5 +1,5 @@
 ---
-- hosts: prodall 
+- hosts: all 
   roles:
      - openldap
   handlers:
