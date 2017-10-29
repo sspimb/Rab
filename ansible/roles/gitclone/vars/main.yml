@@ -1,7 +1,0 @@
----
-
-domain: ram
-user: ansible
-group: ansible
-gid: 5000
-uid: 5000

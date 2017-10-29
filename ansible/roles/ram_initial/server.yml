@@ -1,6 +1,0 @@
----
-- hosts: all 
-  roles:
-     - ram_initial
-  handlers:
-  - include: handlers/main.yml

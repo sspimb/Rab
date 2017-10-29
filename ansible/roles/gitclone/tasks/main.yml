@@ -1,6 +1,0 @@
----
-  - git:
-     repo: https://github.com/sspimb/RAM.git
-     dest: /opt/ansible
-     remote: orgin
-     version: master

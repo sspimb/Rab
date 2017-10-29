@@ -1,6 +1,0 @@
----
-- hosts: prodall 
-  roles:
-     - openldap
-  handlers:
-  - include: handlers/main.yml

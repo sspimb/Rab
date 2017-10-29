@@ -1,6 +1,0 @@
----
-- name: Restart iptables
-  service: name=iptables state=restarted
-
-- name: Restart nrpe
-  service: name=nrpe state=restarted
