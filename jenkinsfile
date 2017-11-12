@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('get Jeknins files') {
+        stage('Jenkins file from git') {
             steps {
                 echo 'Donwload jenkins file..'
             }
