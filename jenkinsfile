@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('get Jeknins files') {
+            steps {
+                echo 'Donwload jenkins file..'
+            }
+        }
+        stage('import paremters') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('trigger ansiible playbook') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
