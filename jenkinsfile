@@ -7,14 +7,14 @@ pipeline {
                 echo 'Donwload jenkins file..'
             }
         }
-        stage('import paremters') {
+        stage('prompt for input ..') {
             steps {
-                echo 'Testing..'
+                echo 'inout..'
             }
         }
         stage('trigger ansiible playbook') {
             steps {
-                echo 'Deploying....'
+                echo 'running oracle playbook...'
             }
         }
     }
