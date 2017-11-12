@@ -9,7 +9,7 @@ pipeline {
         stage('trigger ansiible playbook') {
             steps {
                 echo 'running oracle playbook...'
-                ansiblePlaybook extras: 'vault-password-file /opt/ansible/rabobank/ansible/vault_pass.txt', colorized: true, sudo: true, sudoUser: 'ansible',credentialsId: '595aeae4-4fd3-4fa8-94d6-6340fdc82724', playbook: '/opt/ansible/rabobank/ansible//playbooks/postgresql.yml'
+                ansiblePlaybook extras: 'vault-password-file /opt/ansible/rabobank/ansible/.vault_pass.txt', colorized: true, sudo: true, sudoUser: 'ansible',credentialsId: '595aeae4-4fd3-4fa8-94d6-6340fdc82724', playbook: '/opt/ansible/rabobank/ansible//playbooks/postgresql.yml'
             }
         }
     }
