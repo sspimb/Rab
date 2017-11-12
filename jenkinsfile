@@ -9,6 +9,7 @@ pipeline {
         stage('trigger ansiible playbook') {
             steps {
                 echo 'running oracle playbook...'
+                ansiblePlaybook colorized: true, playbook: '/opt/ansible/rabobank/ansible//playbooks/postgresql.yml', sudoUser: null
             }
         }
     }
