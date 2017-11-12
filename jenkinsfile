@@ -1,12 +1,5 @@
 pipeline {
     agent any
-
-    stages {
-        stage('Jenkins file from git') {
-            steps {
-                echo 'Donwload jenkins file..'
-            }
-        }
         stage('prompt for input ..') {
             steps {
                 echo 'inout..'
